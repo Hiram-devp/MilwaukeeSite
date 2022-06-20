@@ -1,0 +1,151 @@
+﻿@model IEnumerable<MilwaukeeSite02.Models.TestDataModel>
+
+<h4>Test Data</h4><b>Item:</b><input id="lblItem" value="@ViewBag.itemId" type="hidden"/> @ViewBag.itemId<br />
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @if (Model.Count()>0)
+        {
+            var count = 0;
+            foreach (var item in Model)
+            {
+                
+                if (item.ItemId.Equals(ViewBag.itemId))
+                {
+                    
+
+                    <div>
+                        <label  class="control-label">Data 1</label>
+                        <input id="Field1" value="@item.Field1" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Data 2</label>
+                        <input id="Field2" value="@item.Field2" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="control-label">Data 3</label>
+                        <input id="Field3" value="@item.Field3" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="control-label">Data 4</label>
+                        <input id="Field4" value="@item.Field4" class="form-control" />
+
+                    </div>
+
+                    <label  class="control-label">Data 5</label>
+                    <input id="Field5" value="@item.Field5" class="form-control" />
+
+                    <br />
+
+                    <input id="btnGuardar" type="button" value="Guardar" class="btn btn-primary" />
+                    count++;
+                }
+
+            }
+
+            if (count == 0)
+            {
+                 <div>
+                        <label  class="control-label">Data 1</label>
+                        <input id="Field1" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Data 2</label>
+                        <input id="Field2"  class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="control-label">Data 3</label>
+                        <input id="Field3"  class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="control-label">Data 4</label>
+                        <input id="Field4"  class="form-control" />
+
+                    </div>
+
+                    <label  class="control-label">Data 5</label>
+                    <input id="Field5"  class="form-control" />
+
+                    <br />
+
+                    <input id="btnGuardar" type="button" value="Guardar" class="btn btn-primary" />
+            }
+
+
+            
+        }
+        else if (Model.Count() == 0)
+        {
+             
+                <div>
+                    <label  class="control-label">Data 1</label>
+                    <input id="Field1" value="modelis000"  class="form-control" />
+              
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Data 2</label>
+                    <input id="Field2" value="models is 00" class="form-control" />
+         
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">Data 3</label>
+                    <input id="Field3" class="form-control" />
+              
+                </div>
+                <div class="form-group">
+                    <label  class="control-label">Data 4</label>
+                    <input id="Field4" class="form-control" />
+          
+                </div>
+         
+                    <label  class="control-label">Data 5</label>
+                    <input id="Field5" class="form-control" />
+          
+                    <br />
+            
+                    <input id="btnGuardar" type="button" value="Guardar" class="btn btn-primary" />
+         } 
+            
+
+        
+    </div>
+</div>
+
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            
+            $("#btnGuardar").click(function () {
+                var item = $("#lblItem").val();
+                var data1 = $("#Field1").val();
+                var data2 = $("#Field2").val();
+                var data3 = $("#Field3").val();
+                var data4 = $("#Field4").val();
+                var data5 = $("#Field5").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/TestDataGuardar",
+                    data: {item: item, data1: data1, data2: data2, data3: data3, data4: data4, data5: data5 },
+                    success: function (response) {
+                       alert("data saved....");
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+        });
+        </Script>
+

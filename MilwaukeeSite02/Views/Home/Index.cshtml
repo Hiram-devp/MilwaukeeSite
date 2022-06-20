@@ -1,0 +1,107 @@
+﻿@model MilwaukeeSite02.Models.LineaViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form asp-action="Index" asp-controller="Home" method="post">
+        <section class="sectionClass">
+        <h4 class="display-9" style="text-align:left">SELECCIONAR LINEA:</h4>
+        <select id="lineaList" name="type" class="form-control" asp-for="LineaId" 
+         asp-items="new SelectList(ViewBag.Linea)"    style="width:400px">
+         <option value="">--Seleccionar--</option>
+        </select>
+        <br />
+        <div id="modeloContainer">
+            <partial name="FormPartialView.cshtml" model="@Model" />
+        </div>
+        <input type="hidden" asp-for="ModeloId" />  
+        </section>
+        <div class="rightSideDiv" id="formcontainer">
+            
+        </div>
+        <br />
+        <input id="btnSubmit" hidden type="submit" value="submit" />
+        <br />
+        <div style="float:left">
+        <h4>
+            <label><input style="height:25px; width:25px;vertical-align: baseline;"  id="processControl" type="radio" name="radios" value="processControl" /> Process Control</label>
+            
+           <label><input style="height:25px; width:25px;vertical-align: baseline;"  id="changeOver" type="radio" name="radios" value="changeOver" /> Change Over</label>
+       </h4>
+       <br />
+        <input style="float:left" id="btnShowForm" class="btn btn-primary" type="button" value="Aceptar">
+        </div>
+
+         <div id="partialContainer" style="height:500px; position:absolute; bottom:-330px">
+     
+        </div>
+    </form>
+   
+</div>
+
+@section Scripts
+{
+
+<script>  
+    $(function () {
+        $("#lineaList").change(function () {
+            $.ajax({
+                type: "Get",
+                url: "/Home/OnLineaChange",//?type=" + $(this).val(),  //remember change the controller to your owns.  
+                data: { type: $("#lineaList").val() }, // Pass value that you want to controller.
+                success: function (data) {
+                    $("#modeloContainer").html("");
+                    $("#modeloContainer").html(data); //Implement partial refreshing.
+                },
+              
+                error: function (response) {
+                    console.log(response.responseText);
+                }
+            });
+        });
+    });
+    $('#btnShowForm').on('click',
+        function (e) {
+            var radVal = $("input[type=radio][name=radios]:checked").val();
+            if (radVal == "changeOver")
+            {
+                 $.ajax({
+            
+                url: '/Home/_ChangeOverPartialView',
+                    type: 'POST',
+                    cache: false,
+                    async: true,
+                    data: {type: $("#lineaList").val(), model: $("#modeloList").val()},
+                dataType: "html"
+
+
+                })
+                .done(function(result) {
+                    $('#partialContainer').html(result);
+                }).fail(function(xhr) {
+                    console.log('error : ' + xhr.status + ' - ' + xhr.statusText + ' - ' + xhr.responseText);
+                });
+            }
+            if (radVal == "processControl")
+            {
+                $.ajax({
+            
+                url: '/Home/_ProcessControlPartialView',
+                    type: 'POST',
+                    cache: false,
+                    async: true,
+                    data: {type: $("#lineaList").val(), model: $("#modeloList").val()},
+                dataType: "html"
+
+                })
+                .done(function(result) {
+                    $('#partialContainer').html(result);
+                }).fail(function(xhr) {
+                    console.log('error : ' + xhr.status + ' - ' + xhr.statusText + ' - ' + xhr.responseText);
+                });
+            }         
+        });
+    
+</script>
+}

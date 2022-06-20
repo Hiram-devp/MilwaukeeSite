@@ -1,0 +1,11 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MilwaukeeSite02.Models.LineaViewModel
+
+<h4  style="text-align:left">SELECCIONAR MODELO</h4>
+        <select id="modeloList"  name="model" asp-items="@(new SelectList(Model.ModelosList, "Text", "Value"))"  class="form-control"   style="width:400px">
+         <option value="">--Seleccionar--</option>
+        
+        </select>
+         <br />

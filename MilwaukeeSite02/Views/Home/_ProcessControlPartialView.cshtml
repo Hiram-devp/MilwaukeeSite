@@ -1,0 +1,78 @@
+﻿@model MilwaukeeSite02.Models.ProcessControlModel
+
+<h4 style="text-align:left">Process Control Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="_ProcessControlPartialView">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Line" class="control-label"></label>
+                <input asp-for="Line" class="form-control" />
+                <span asp-validation-for="Line" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Tecnico" class="control-label"></label>
+                <input asp-for="Tecnico" class="form-control" />
+                <span asp-validation-for="Tecnico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item" class="control-label"></label>
+                <input asp-for="Item" class="form-control" />
+                <span asp-validation-for="Item" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+     <div class="col-md-4">
+         <div class="form-group">
+                <label asp-for="ProcessControlPoint" class="control-label"></label>
+                <input asp-for="ProcessControlPoint" class="form-control" />
+                <span asp-validation-for="ProcessControlPoint" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="Equipment" class="control-label"></label>
+                <input asp-for="Equipment" class="form-control" />
+                <span asp-validation-for="Equipment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instrument" class="control-label"></label>
+                <input asp-for="Instrument" class="form-control" />
+                <span asp-validation-for="Instrument" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Values" class="control-label"></label>
+                <input asp-for="Values" class="form-control" />
+                <span asp-validation-for="Values" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Unit" class="control-label"></label>
+                <input asp-for="Unit" class="form-control" />
+                <span asp-validation-for="Unit" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div>
+    <a asp-action="Index">Back to List</a>
+</div>
+            </div>
+</div>
+
+
+
+
