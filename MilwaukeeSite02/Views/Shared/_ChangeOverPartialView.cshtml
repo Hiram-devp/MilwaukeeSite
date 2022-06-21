@@ -21,14 +21,13 @@
                <b> @Html.DisplayNameFor(model => model.Date)</b>
             </th>
             @Model.ElementAt(0).Date
-            <th>
-               <b> @Html.DisplayNameFor(model => model.Tecnico)</b>
-            </th>
+            
             
           
            <th>
-               <b>
+               
                <form method="post" asp-controller="Home" asp-action="ExportExcel">
+                <b> @Html.DisplayNameFor(model => model.Tecnico)</b>
                 <input type="text" name="txtTecnico" />
                 <input  type="submit" class="btn btn-primary" value="Export to Excel" />
                 </form>

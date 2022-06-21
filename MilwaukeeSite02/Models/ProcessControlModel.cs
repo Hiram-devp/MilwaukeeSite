@@ -11,7 +11,7 @@
 
         public DateTime Hora { get; set; }
         public string Tecnico { get; set; }
-        public int Item { get; set; }
+        public string Item { get; set; }
 
         public string ProcessControlPoint { get; set; }
         public string Equipment { get; set; }
