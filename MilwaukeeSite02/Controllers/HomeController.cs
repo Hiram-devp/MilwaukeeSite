@@ -368,7 +368,22 @@ namespace MilwaukeeSite02.Controllers
                 });
                 #endregion
                 }
-            return PartialView("_ProcessControlPartialView02", pc);
+                else if ((type == "MXC002") && (model == "2801"))
+                {
+                     #region data
+                #endregion
+                }
+                else if ((type == "MXC002") && (model == "2802"))
+                {
+                     #region data
+                #endregion
+                }
+                else if ((type == "MXC002") && (model == "2902"))
+                {
+                     #region data
+                     #endregion
+                }
+                return PartialView("_ProcessControlPartialView02", pc);
         }
 
         public IActionResult _ChangeOverPartialView(string type, string model)
@@ -570,12 +585,12 @@ namespace MilwaukeeSite02.Controllers
                     Line = type,
                     Date = DateTime.Now,
                     Tecnico = String.Empty,
-                    Item = "1",
-                    ProcessControlPoint = "B4",
+                    Item = "2",
+                    ProcessControlPoint = "B2",
                     Equipment = "Grease Dispenser",
                     Instrument = String.Empty,
                     ControlPoint = "Weight",
-                    ControlSPEC = "2.0+-0.2",
+                    ControlSPEC = "1.5+-0.2",
                     Unit = "g",
                     Tester = "Electronic scale"
                 });
@@ -585,12 +600,27 @@ namespace MilwaukeeSite02.Controllers
                     Line = type,
                     Date = DateTime.Now,
                     Tecnico = String.Empty,
-                    Item = "1",
-                    ProcessControlPoint = "B4",
+                    Item = "3",
+                    ProcessControlPoint = "B1",
+                    Equipment = "Air Press",
+                    Instrument = String.Empty,
+                    ControlPoint = "Press Force",
+                    ControlSPEC = "250-350",
+                    Unit = "kgf",
+                    Tester = "Press force measurement set"
+                });
+                cho.Add(new ChangeOverModel
+                {
+                    Model = model,
+                    Line = type,
+                    Date = DateTime.Now,
+                    Tecnico = String.Empty,
+                    Item = "5",
+                    ProcessControlPoint = "A3",
                     Equipment = "Grease Dispenser",
                     Instrument = String.Empty,
                     ControlPoint = "Weight",
-                    ControlSPEC = "2.0+-0.2",
+                    ControlSPEC = "0.5+-0.2",
                     Unit = "g",
                     Tester = "Electronic scale"
                 });
@@ -600,14 +630,14 @@ namespace MilwaukeeSite02.Controllers
                     Line = type,
                     Date = DateTime.Now,
                     Tecnico = String.Empty,
-                    Item = "1",
-                    ProcessControlPoint = "B4",
-                    Equipment = "Grease Dispenser",
+                    Item = "6",
+                    ProcessControlPoint = "B6",
+                    Equipment = "Air Press",
                     Instrument = String.Empty,
-                    ControlPoint = "Weight",
-                    ControlSPEC = "2.0+-0.2",
-                    Unit = "g",
-                    Tester = "Electronic scale"
+                    ControlPoint = "Press Force",
+                    ControlSPEC = "150-250",
+                    Unit = "kgf",
+                    Tester = "Press force measurement set"
                 });
                 cho.Add(new ChangeOverModel
                 {
@@ -615,14 +645,14 @@ namespace MilwaukeeSite02.Controllers
                     Line = type,
                     Date = DateTime.Now,
                     Tecnico = String.Empty,
-                    Item = "1",
-                    ProcessControlPoint = "B4",
-                    Equipment = "Grease Dispenser",
+                    Item = "8",
+                    ProcessControlPoint = "C3",
+                    Equipment = "Air Press",
                     Instrument = String.Empty,
-                    ControlPoint = "Weight",
-                    ControlSPEC = "2.0+-0.2",
-                    Unit = "g",
-                    Tester = "Electronic scale"
+                    ControlPoint = "Press Force",
+                    ControlSPEC = "300-400",
+                    Unit = "kgf",
+                    Tester = "Press force measurement set"
                 });
                 cho.Add(new ChangeOverModel
                 {
@@ -630,15 +660,120 @@ namespace MilwaukeeSite02.Controllers
                     Line = type,
                     Date = DateTime.Now,
                     Tecnico = String.Empty,
-                    Item = "1",
-                    ProcessControlPoint = "B4",
-                    Equipment = "Grease Dispenser",
+                    Item = "10",
+                    ProcessControlPoint = "D2",
+                    Equipment = "Electric screw driver",
                     Instrument = String.Empty,
-                    ControlPoint = "Weight",
-                    ControlSPEC = "2.0+-0.2",
-                    Unit = "g",
-                    Tester = "Electronic scale"
+                    ControlPoint = "Torque",
+                    ControlSPEC = "4+-1",
+                    Unit = "kgf.cm",
+                    Tester = "Torque Tester"
                 });
+                cho.Add(new ChangeOverModel
+                {
+                    Model = model,
+                    Line = type,
+                    Date = DateTime.Now,
+                    Tecnico = String.Empty,
+                    Item = "11",
+                    ProcessControlPoint = "D1",
+                    Equipment = "Soldering Iron",
+                    Instrument = String.Empty,
+                    ControlPoint = "Temperature",
+                    ControlSPEC = "380-410",
+                    Unit = "℃",
+                    Tester = "Infrared thermometer"
+                });
+                cho.Add(new ChangeOverModel
+                {
+                    Model = model,
+                    Line = type,
+                    Date = DateTime.Now,
+                    Tecnico = String.Empty,
+                    Item = "12",
+                    ProcessControlPoint = "E10",
+                    Equipment = "Electric screw driver",
+                    Instrument = String.Empty,
+                    ControlPoint = "Torque",
+                    ControlSPEC = "10+-1",
+                    Unit = "kgf.cm",
+                    Tester = "Torque Tester"
+                });
+                cho.Add(new ChangeOverModel
+                {
+                    Model = model,
+                    Line = type,
+                    Date = DateTime.Now,
+                    Tecnico = String.Empty,
+                    Item = "13",
+                    ProcessControlPoint = "E10",
+                    Equipment = "Electric screw driver",
+                    Instrument = String.Empty,
+                    ControlPoint = "Torque",
+                    ControlSPEC = "10+-1",
+                    Unit = "kgf.cm",
+                    Tester = "Toque Tester"
+                });
+                cho.Add(new ChangeOverModel
+                {
+                    Model = model,
+                    Line = type,
+                    Date = DateTime.Now,
+                    Tecnico = String.Empty,
+                    Item = "14",
+                    ProcessControlPoint = "E12",
+                    Equipment = "Electric screw driver",
+                    Instrument = String.Empty,
+                    ControlPoint = "Torque",
+                    ControlSPEC = "10-14",
+                    Unit = "kgf.cm",
+                    Tester = "Torque Tester"
+                });
+                cho.Add(new ChangeOverModel
+                {
+                    Model = model,
+                    Line = type,
+                    Date = DateTime.Now,
+                    Tecnico = String.Empty,
+                    Item = "Tester",
+                    ProcessControlPoint = "Tester",
+                    Equipment = "Running Booth",
+                    Instrument = String.Empty,
+                    ControlPoint = "Voltaje",
+                    ControlSPEC = "20.5",
+                    Unit = "V",
+                    Tester = "Visual Inspection"
+                });
+                cho.Add(new ChangeOverModel
+                {
+                    Model = model,
+                    Line = type,
+                    Date = DateTime.Now,
+                    Tecnico = String.Empty,
+                    Item = "EOL",
+                    ProcessControlPoint = "Tester",
+                    Equipment = "EOL",
+                    Instrument = String.Empty,
+                    ControlPoint = "Voltaje",
+                    ControlSPEC = "20.5",
+                    Unit = "V",
+                    Tester = "Visual Inspection"
+                });
+                #endregion
+            }
+            else if ((type == "MXC002") && (model == "2801"))
+            {
+                #region data
+                #endregion
+            }
+            else if ((type == "MXC002") && (model == "2802"))
+            {
+                #region data
+                #endregion
+            }
+            else if ((type == "MXC002") && (model == "2902"))
+            {
+                #region data
                 #endregion
             }
             return PartialView("_ChangeOverPartialView", cho);
